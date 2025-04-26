@@ -97,12 +97,14 @@ int main(void)
   MX_GPIO_Init();
   MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
-
+  
+  // Start timer4
   HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_1); // PD12 (Green)
   HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_2); // PD13 (Orange)
   HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_3); // PD14 (Red)
   HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_4); // PD15 (Blue)
-
+  
+  // Duty cycles for LEDs
   TIM4->CCR1 = (TIM4_ARR + 1) * DUTY_GREEN / 100; 	// PD12 (Green)
   TIM4->CCR2 = (TIM4_ARR + 1) * DUTY_ORANGE / 100; 	// PD13 (Orange)
   TIM4->CCR3 = (TIM4_ARR + 1) * DUTY_RED / 100; 	// PD14 (Red)
